@@ -34,48 +34,29 @@ for i in _input:
     else:
         temp += _dict[i]
 
-_leftlist = []
-
-for i in range(0,len(_input)):
-    _leftlist.append(_input[-i])
-
-for i in range(0,len(_input)):
-    
-    if _input[i] == 'A':
-        _leftlist[i] = [_input[i],True]
-    else:
-        _leftlist[i] = [_input[i],False]
-
+inputlist = list(_input)
 start = 0
-revstart = 0
-temp = 0
-while(1):
-    while(_leftlist[start][1]):
-            start += 1
-    while(_leftlist[revstart][1]):
-            revstart -= 1
-    if start <= -revstart:
-        revstart = start
-    elif start > -revstart:
-        start = -revstart
-    elif start < -revstart:
-        revstart = start
-    
-    
-    
+target = 0
+retarget = 1
 
-print(start,revstart)    
+for i in _input[start:len(_input)-start]:
+    if i == 'A':
+        target += 1
+    elif i != 'A':
+        break
 
-print(_input,_leftlist)
-
-# print(_dict,'\n\n',_redict)
-
-# print(temp) """
-
+for i in _input[::-1]:
+    if i == 'A':
+            retarget += 1
+    elif i != 'A':
+        break
+print(target,retarget)
+print(_input[]) """
 # 못풀었음
-""" 
+
+
 # saintgo9 solution
-""" 
+
 def solution(name):
     answer = 0
 
@@ -165,3 +146,6 @@ def chain(name):
             tmp = 0
             start = 0
     return iList 
+
+
+

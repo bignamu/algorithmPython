@@ -26,3 +26,8 @@ def solution(number, k):
     if k != 0:
         stack = stack[:-k]
     return ''.join(stack)
+
+number = "4177252841"	
+k = 4	#"775841"
+
+solution(number,k)
