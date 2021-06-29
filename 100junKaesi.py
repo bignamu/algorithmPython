@@ -1,8 +1,16 @@
 def sol(numstr):
     answer = 0
-    numLi = list(numstr)
-    print(numLi)
-    
+
+    zeroCtn = 0
+    ichiCtn = 0
+    for i in numstr:
+        if i == '0':
+            zeroCtn += 1
+        else:
+            ichiCtn += 1
+
+    print(zeroCtn,ichiCtn)
+
     front = numstr[0]
     state = []
     temp = 1
@@ -17,11 +25,9 @@ def sol(numstr):
             temp = 1
             front = i
             continue
-    if front == '1':
-        front == '0'
-    elif front == '0':
-        front == '1'
+
     state.append([front,temp])
+
     print(state)
     
     zeroGroup = 0
@@ -31,16 +37,14 @@ def sol(numstr):
             zeroGroup += 1
         else:
             ichiGroup += 1
-
-    print (zeroGroup,ichiGroup)
+    print(zeroGroup,ichiGroup)
 
     answer = min(zeroGroup,ichiGroup)
-    print(answer)    
     return answer
 
+numstr = '0000000000000000' # 1
 
-numstr = '0000000000100000000' # 1
 
+print(sol(numstr))
 
-sol(numstr)
 
