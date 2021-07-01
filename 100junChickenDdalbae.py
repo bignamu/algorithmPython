@@ -1,8 +1,9 @@
-# https://www.acmicpc.net/problem/15686
+ # https://www.acmicpc.net/problem/15686
 
 
 import copy #copy.deepcopy()
 from itertools import combinations
+
 def sol(chickenMatrix,M):
     lenchic = len(chickenMatrix)
     chictrix = copy.deepcopy(chickenMatrix)
@@ -45,32 +46,15 @@ def sol(chickenMatrix,M):
     answer = min(sumStreetList)
     return answer
 
-inp = '''5 1
-1 2 0 2 1
-1 2 0 2 1
-1 2 0 2 1
-1 2 0 2 1
-1 2 0 2 1'''
+
+N, M = map(int,input().split())
+
 
 chickenMatrix = []
 
-inpt = inp.split('\n')
+for _ in range(N):
+    chickenMatrix.append(list(map(int,input().split())))
 
-N = int(inpt[0][0])
-M = int(inpt[0][2])
 
-inpt = inpt[1:]
-#print(inpt)
 
-for i in inpt:
-    tori = []
-    for j in i:
-        if j != ' ' and j != '\n':
-            tori.append(int(j))
-            #print(j)
-    chickenMatrix.append(tori)
-
-#print(chickenMatrix)
-# chikenMatrix.append(inp.split('\n'))
-
-print(sol(chickenMatrix,M ))
+print(sol(chickenMatrix,M))
