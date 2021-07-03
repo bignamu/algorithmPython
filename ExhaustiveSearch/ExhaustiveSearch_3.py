@@ -1,5 +1,6 @@
-import math
 
+"""
+import math
 def solution(brown, yellow):
     answer = []
     totalSquare = brown + yellow
@@ -40,7 +41,7 @@ def solution(brown, yellow):
             if cp == 0:
                 cpstk += 1
         
-        for h in range(1,height+1):
+        for _ in range(1,height+1):
             heightstk += 1
         
         print(cpstk,heightstk,cpstk*heightstk,yellowstk,'wh', totalSquare)
@@ -63,7 +64,30 @@ def solution(brown, yellow):
     return answer
 
 
-brown = 5000
-yellow = 25000
+brown = 8
+yellow = 6
+
+print(solution(brown,yellow)) """
+
+# 시간초과 못풀었음 카카오 자물쇠처럼 풀면안됨 for문 돌리기전에 수학적으로 접근하자
+# 무엇이 자동으로 맞춰질 수 있는가
+import math
+def solution(brown, yellow):
+    
+    aliquot = int(math.sqrt(yellow))
+    for i in range(1,aliquot+1):
+        if yellow % i == 0:
+            height = int(yellow / i)
+            rtn = height*2 + i*2 + 4
+            if rtn == brown:
+                print(rtn,i,height)
+                return [height+2,i+2]
+    answer = []
+    return answer
+
+
+
+brown = 10
+yellow = 2
 
 print(solution(brown,yellow))
