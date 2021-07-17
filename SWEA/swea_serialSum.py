@@ -12,7 +12,7 @@ for test_case in range(1, T + 1):
     # serial = [1,2,3,4,5,6,3,8,9,10]
     cal = []
     
-    for i in range(length-M):
+    for i in range(length-M+1):
         temp = 0
         for j in range(M):
             temp += serial[i+j]
