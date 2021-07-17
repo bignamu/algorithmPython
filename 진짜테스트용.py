@@ -1,11 +1,7 @@
-print([0]*5)
+matrix = [[0]*10 for _ in range(10)]
 
 
-s1 = 'hht'
-s2 = 'hit'
-print(list(set(s1)-set(s2)))
-print(list(set(s2)-set(s1)))
 
-s1list = [s11 for s11 in s1 if s11 in s2]
+matrix[0][0] = 1
 
-print(s1list)
+print(matrix)
