@@ -1,7 +1,7 @@
-matrix = [[0]*10 for _ in range(10)]
+import sys
 
 
 
-matrix[0][0] = 1
+s = 'K123'
 
-print(matrix)
+print(s[-3:])
