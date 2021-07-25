@@ -1,16 +1,30 @@
-import sys
-import re
+
+import os
+import argparse
 
 
-str1 = 'ABCA'
-str2 = 'ABABCA'
-
-for i in list(str1):
-    print(re.findall(i,str2))
+print(os.path.dirname('H:\Resources\Algorithm\Python\kakaopay04-4.png').split('\\')[-1])
 
 
+p = 'is'
+t = 'This is a book~!'
+
+M = len(p)
+N = len(t)
+
+def BruteForce(p,t):
+    i = 0
+    j = 0
+    while j < M and i < N:
+        if t[i] != p[j]:
+            i= i - j
+            j = -1
+
+        i += 1
+        j += 1
+    if j == M:
+        return i-M
+    else:return -1
 
 
-_list = [1,'abc','b']
-
-print(_list['abc'])
+print(BruteForce(p,t))
