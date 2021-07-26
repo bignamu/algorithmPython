@@ -1,21 +1,39 @@
 
+from collections import deque
+
 T = int(input())
-
+# 여러개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
 for test_case in range(1, T + 1):
+    v, e = map(int, input().split())
+    graph = [[] for _ in range(v + 1)]
+    for _ in range(e):
+        a, b = map(int, input().split())
+        graph[a].append(b)
 
-    
-    V,E = map(int, input().split())
+    s, g = map(int, input().split())
 
-    visited = [0 for _ in range(V)]
-    stack = []
-    node = []
-    for i in range(E):
-        start,end = map(int, input().split())
-        node.append([start,end])
-    S, G = map(int, input().split())
+    visited = [0] * (v + 1)
 
-    print(node,visited,V,E)
-    
+    q = deque()
+    q.append(s)
+
+    flag = 0
+    while q:
+        now = q.popleft()
+        visited[now] = 1
+
+        if now == g:
+            flag = 1
+            break
+
+        for nxt in graph[now]:
+            if visited[nxt] == 0:
+                q.append(nxt)
+
+    print("#" + str(test_case), flag)
+
+
+        
 """ 
 1
 6 5
