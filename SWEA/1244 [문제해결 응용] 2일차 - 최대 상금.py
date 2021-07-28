@@ -1,23 +1,23 @@
-from itertools import permutations
 
-T = int(input())
 
-for test_case in range(1, T + 1):
+for tc in range(1,int(input())+1):
+    data, K = input().split() # 숫자판의 정보, 교환횟수
+    K = int(K)
+    N = len(data)
+    now = set([data])
+    nxt = set()
+    for _ in range(K):
+        while now:
+            s = now.pop()
+            s = list(s)
+            for i in range(N):
+                for j in range(i+1,N):
+                    s[i],s[j] = s[j],s[i]
+                    nxt.add(''.join(s))
+                    s[i], s[j] = s[j], s[i]
+        now,nxt = nxt,now
 
-    plate, cnt = map(int, input().split())
-    plate = list(map(int,str(plate)))
-
-    while cnt:
-
-        nome = set(permutations(plate,len(plate))).difference(plate)
-        
-        # print(nome)
-        # print(max(nome))
-        plate = list(max(nome))
-
-        cnt -= 1
-    plate = ''.join(map(str,plate))
-    print(f'#{test_case}',plate)
+    print('#{} {}'.format(tc,max(map(int,now))))
 
 
 ''' 
