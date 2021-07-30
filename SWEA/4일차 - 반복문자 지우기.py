@@ -8,23 +8,30 @@ T = int(input())
 for test_case in range(1, T + 1):
 
     strr = input()
-    strr = list(strr)
-    stack = [strr[0]]
-    flag = 0
-    while strr:
-        qq = strr.pop(0)
-        stack.pop()
-        for s in strr:
-            if qq != s:
-                stack.append(qq)
-                stack.append(s)
-                break
-            elif qq == s:
-                break
-    print(stack)    
+    
+    lsr = list(strr)
+    stack = [lsr[0]]
+    flag = False
+    
+    for s in range(1,len(lsr)):
+        if stack[-1] != lsr[s]:
+            stack.append(lsr[s])
+        elif stack[-1] == lsr[s] and len(stack) >= 2:
+            stack.pop()
+        elif stack[0] == lsr[1] != lsr[2]:
+            flag = True
+    if flag:
+        stack.pop(0)
+    # print(stack)
+
+    print(f'#{test_case}',len(stack))
+
+                
+            
+    
     
 """ 
-1
+3
 ABCCB
 NNNASBBSNV
 UKJWHGGHNFTCRRCTWLALX

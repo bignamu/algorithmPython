@@ -5,6 +5,7 @@ import argparse
 
 print(os.path.dirname('H:\Resources\Algorithm\Python\kakaopay04-4.png').split('\\')[-1])
 
+print(min(1,0))
 
 p = 'is'
 t = 'This is a book~!'
@@ -28,3 +29,17 @@ def BruteForce(p,t):
 
 
 print(BruteForce(p,t))
+
+
+
+
+A_list = ['a', 'b', 'c'] 
+B_list = ['d', 'e', 'c', 'd', 'e', 'f']
+
+clist = A_list+B_list
+print('C_List',clist)
+
+A_set = set(A_list)
+B_set = set(B_list)
+C_set = A_set | B_set
+print('C_set',C_set)
