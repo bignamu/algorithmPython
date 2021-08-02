@@ -24,4 +24,4 @@ for t in test:
             count += t // C
 
 count += len(test)
-print(test,count)
+print(count)
