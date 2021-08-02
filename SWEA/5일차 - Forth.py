@@ -9,6 +9,10 @@ for test_case in range(1, T + 1):
     for l in _list:
 
         if l == '.':
+            if len(stack)>=2:
+                print(f'#{test_case}','error')
+                flag2 = True
+                break    
             # stack.append(l)
             flag = True
             break
@@ -34,8 +38,7 @@ for test_case in range(1, T + 1):
                 print(f'#{test_case}','error')
                 flag2 = True
                 break
-    if len(stack) >= 2:
-        print(f'#{test_case}','error')
+
     if stack and stack[0] != '.':
         test = int(str(stack[0]).split('.')[-1])
         if stack[-1] == '.' and not test:
