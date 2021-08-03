@@ -7,26 +7,26 @@ N = int(input())
 
 
 
-_list = [0] * (N+1)
+tli = [0]
+pli = [0]
+dp = [0] * (N+1)
+ndp = [0] * (N+1)
 for i in range(0,N):
     T, P = map(int,input().split())
-    if T+i <= N and not _list[T+i]:
-        _list[T+i] = P
-    elif T+i <= N and _list[T+i]:
-        if isinstance(_list[T+i],int):
-            _list[T+i] = [_list[T+i],P]
-            continue
-        temp = []
-        for ti in  _list[T+i]:
-            temp.append(ti)
-        _list[T+i] = temp
+    tli.append(T)
+    pli.append(P)
 
-print(_list)
-    
-    
+for i in range(N,0,-1):
+    able = N-i+1
+    if i+tli[i] > N:
+        if i+1 > N:
+            dp[i] = 0
+        else:
+            dp[i] = dp[i+1]
+    else:
+        dp[i] = max(dp[i+1],pli[i]+dp[i+tli[i]])
 
-
-
+print(dp)
 
 
 
