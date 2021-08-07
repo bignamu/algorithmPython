@@ -30,6 +30,9 @@ def BruteForce(p,t):
 
 print(BruteForce(p,t))
 
+a = type('abc')
+print(a.__name__)
+
 
 
 
