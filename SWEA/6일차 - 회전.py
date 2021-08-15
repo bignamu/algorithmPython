@@ -10,7 +10,8 @@ for test_case in range(1, T + 1):
 
     _list = list(map(int,input().split()))
 
-    a = _list.pop(0)
-    _list.append(a)
+    for _ in range(M):
+        a = _list.pop(0)
+        _list.append(a)
 
-    print(f'#{test_case}',_list)
+    print(f'#{test_case}',_list[0])
