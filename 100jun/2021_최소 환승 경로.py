@@ -28,7 +28,8 @@ def bfs(start):
         v = q.popleft()
         print(v,end=' ')
 
-        for i in hub[v]:
+        for i in sub[v]:
+            if 
             if not visited[i]:
                 q.append(i)
                 visited[i] = 1
