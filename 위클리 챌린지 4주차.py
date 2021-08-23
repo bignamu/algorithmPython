@@ -22,8 +22,8 @@ def solution(table, languages, preference):
                 dr = dname.split('_')[0]
                 maxdict[dr].append(p * dscore)
     
-    for mx in maxdict.values():
-        print(sum(mx))
+    # for mx in maxdict.values():
+        # print(sum(mx))
 
     maxdict = sorted(maxdict.items(),key=lambda x : sum(x[1]),reverse=True)
     
@@ -36,12 +36,12 @@ def solution(table, languages, preference):
             break
 
     check.sort()
-    print(check)
+    # print(check)
     answer = check[0]
     
-    print(maxdict)
-    print(_dict)
-    print(answer)
+    # print(maxdict)
+    # print(_dict)
+    # print(answer)
     
     return answer
 
