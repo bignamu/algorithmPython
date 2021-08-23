@@ -38,7 +38,7 @@ def solution(n, s, a, b, fares):
         dijkstra(i)
         minn.append(origin[i] + distance[a] + distance[b])
     
-    print(min(minn))
+    # print(min(minn))
     answer = min(minn)
     
     return answer
