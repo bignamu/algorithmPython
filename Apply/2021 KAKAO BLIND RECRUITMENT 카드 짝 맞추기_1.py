@@ -14,7 +14,7 @@ def bfs(removed,src,dst): #비트0, 출발지 ,목적지
     q.append(src)
     while q:
         curr = q.popleft()
-        print(curr)
+        # print(curr)
         if curr[0] == dst[0] and curr[1] == dst[1]: # [0]이 row를 뜻한다 [1]이 col 즉 , 행과열이 같다면
             return  curr[2] #조작횟수는 [2]에 있음
         for i in range(4):
@@ -41,6 +41,9 @@ def bfs(removed,src,dst): #비트0, 출발지 ,목적지
 def permutate(cnt,removed,src): # removed는 지금까지 삭제된 카드를 비트 형태로 나타낸거임
     global MinCnt 
     
+    if cnt >= MinCnt:
+        return
+
     if removed == Allremoved: #카드가 제거될때마다 removed의 비트를 왼쪽으로 밀어줌
         MinCnt = min(MinCnt,cnt)
         return
