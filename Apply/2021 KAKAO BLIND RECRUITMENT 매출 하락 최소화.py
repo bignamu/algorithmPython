@@ -1,55 +1,36 @@
+import math
 
-from collections import defaultdict
+Children = [[] for _ in range(300000)]
+Cost = [[0,0] for _ in range(300000)]
 
+def traversal(sales,node):
+    Cost[node][0] = 0
+    Cost[node][1] = sales[node]
+
+    if not Children[node]:
+        return
+    
+    extraCost = math.inf
+    for child in Children[node]:
+        traversal(sales,child)
+        if Cost[child][0] < Cost[child][1]:
+            Cost[node][0] += Cost[child][0]
+            Cost[node][1] += Cost[child][0]
+            extraCost = min(extraCost,Cost[child][1] - Cost[child][0])
+        else:
+            Cost[node][0] += Cost[child][1]
+            Cost[node][1] += Cost[child][1]
+            extraCost = 0
+    Cost[node][0] += extraCost
 def solution(sales, links):
-
-    teams = defaultdict(list)
-    
-    for a, b in links:
-    
-        teams[a].append((b,sales[b-1]))
-
-    for a in teams.keys():
-        teams[a].append((a,sales[a-1]))
-
-
-    teams_val = list(teams.values())
-    teams_key = list(teams.keys())
-    for i in range(len(teams)):
-        end = i
-        while end < len(teams):
-            
-            end += 1
-            if end == len(teams):
-                break
-            
-            test = set(teams_val[i]) & set(teams_val[end])
-            print(test,teams_key[i],teams_key[end])
-            
-        
-    
-    def dfs(start):
-
-        if promising():
-            print('ok')
-        
-    def promising():
-        return True
-    
-    
-    dfs(1)
-    
-    
-    
+    for link in links:
+        Children[link[0]-1].append(link[1]-1)
 
         
-    print(teams)
-        
-        
+    traversal(sales,0)
     
+    answer = min(Cost[0][0],Cost[0][1])
     
-    
-    answer = 0
     return answer
 
 
