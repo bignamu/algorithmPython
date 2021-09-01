@@ -13,6 +13,7 @@ def bfs(removed,src,dst): #비트0, 출발지 ,목적지
     q = deque()
     q.append(src)
     while q:
+        
         curr = q.popleft()
         # print(curr)
         if curr[0] == dst[0] and curr[1] == dst[1]: # [0]이 row를 뜻한다 [1]이 col 즉 , 행과열이 같다면
