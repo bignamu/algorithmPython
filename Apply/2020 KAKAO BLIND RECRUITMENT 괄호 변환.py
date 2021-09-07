@@ -1,6 +1,3 @@
-from typing import Counter
-
-
 from collections import Counter
 
 def solution(p):
@@ -65,7 +62,8 @@ def solution(p):
 
 
         
-    print(dfs(p))
+    # print(dfs(p))
+    answer = dfs(p)
     return answer
 
 
