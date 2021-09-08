@@ -47,3 +47,8 @@ test_re.py
 그렙2mobis5.png
 그렙3.png
 tree_partion_2.png
+
+.gitignore
+
+test_re.py
+test2_re.py
