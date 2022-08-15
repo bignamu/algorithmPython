@@ -1,0 +1,29 @@
+import sys
+si = sys.stdin.readline
+def mis(): return map(int, si().split())
+
+
+if __name__ == '__main__':
+    n = int(si())
+    a = list(mis())
+    b = list(mis())
+    c = sorted(a)
+    length = 0
+    for i in range(n - 1, -1, -1):
+        if c[i] != b[i]:
+            break
+        length += 1
+
+    same = set()
+    for i in range(n - length, n):
+        same.add(c[i])
+
+    ans = []
+    for e in a:
+        if e not in same:
+            ans.append(e)
+
+    if ans == b[:n - length]:
+        print(1)
+    else:
+        print(0)
